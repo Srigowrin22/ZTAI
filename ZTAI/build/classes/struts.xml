@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "https://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+	<!-- <constant name="struts.devMode" value="true" /> -->
+
+	<package name="default" extends="struts-default">
+	
+		<action name="signup" class="com.ztai.action.SignupAction">
+			<result name="success">login.jsp</result>
+			<result name="error"> signup.jsp</result>
+		</action>
+
+		<action name="login" class="com.ztai.action.LoginAction">
+			<result name="adminDashboard" type="redirect">adminDashboard.jsp</result>
+            <result name="candidateDashboard" type="redirect">candDashboard.jsp</result>
+			<result name="error">login.jsp</result>
+		</action>
+		
+		
+        <action name="authorize" class="com.ztai.action.Serve">
+            <result name="success" type="redirect">edit.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+        
+        <action name="update" class="com.ztai.action.Serve">
+            <result name="success" type="redirect">edit.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+
+		<action name="addTodo" class="com.ztai.action.TodoAction" method="addTodo">
+            <result name="success">todo.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>  
+        
+        <action name="deleteTodo" class="com.ztai.action.TodoAction" method="deleteTodo">
+            <result name="success">todo.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>  
+        
+        <action name="updateTodo" class="com.ztai.action.TodoAction" method="updateTodo">
+	        <result name="success">todo.jsp</result>
+	        <result name="error">/error.jsp</result>
+	    </action>   
+	    
+	    <action name="askTai" class="com.ztai.action.AskTaiAction">
+            <result name="success">/chat.jsp</result>
+        </action>   
+        
+	</package>
+</struts>
